@@ -18,13 +18,19 @@ function draw() {
     for(var i = 0; i < xarray.length; i++){
         var x = xarray[i];
         var y = yarray [i];
-        line (x,y, xarray[i-8], yarray[i-8]);
-	}
+        line (x,y, xarray[i-2], yarray[i-2]);
+	 if(xarray.length >20 && yarray.length>20){
+        xarray.shift();
+         yarray.shift();
+    }
+    }
+   
 }
 
 function mouseDragged(){
     xarray.push(mouseX);
     yarray.push(mouseY);
+    
     
 }
 
