@@ -5,6 +5,7 @@ Lab 06*/
 
 var xarray = [];
 var yarray = [];
+var move = 2;
 
 
 function setup() {
@@ -18,11 +19,15 @@ function draw() {
     for(var i = 0; i < xarray.length; i++){
         var x = xarray[i];
         var y = yarray [i];
-        line (x,y, xarray[i-2], yarray[i-2]);
+        line (x,y + move, xarray[i-6], yarray[i-6] +move);
 	 if(xarray.length >20 && yarray.length>20){
         xarray.shift();
          yarray.shift();
     }
+     if(yarray.length < height){
+         move +=.16;
+     }
+
     }
    
 }
@@ -31,6 +36,7 @@ function mouseDragged(){
     xarray.push(mouseX);
     yarray.push(mouseY);
     
+    move = 0;
     
 }
 
